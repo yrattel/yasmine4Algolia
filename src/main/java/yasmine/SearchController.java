@@ -53,6 +53,7 @@ public class SearchController {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return "";
         }
+
         List<Pair<LocalDateTime, String>> listOfSearches = getListOfSearches();
 
         Map<String, Long> mapSearchesByCount = listOfSearches.stream()

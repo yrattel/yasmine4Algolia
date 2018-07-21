@@ -12,7 +12,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 @AutoConfigureMockMvc
@@ -20,7 +19,6 @@ public class MyTests {
 
     @Autowired
     private MockMvc mockMvc;
-
 
     @Test
     public void countExamples() throws Exception {
@@ -61,6 +59,7 @@ public class MyTests {
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(content().json("{ \"queries\": [{ \"query\": \"http%3A%2F%2Fwww.getsidekick.com%2Fblog%2Fbody-language-advice\", \"count\": 2283 }, { \"query\": \"http%3A%2F%2Fwebboard.yenta4.com%2Ftopic%2F568045\", \"count\": 1943 }, { \"query\": \"http%3A%2F%2Fwebboard.yenta4.com%2Ftopic%2F379035%3Fsort%3D1\", \"count\": 1358 }, { \"query\": \"http%3A%2F%2Fjamonkey.com%2F50-organizing-ideas-for-every-room-in-your-house%2F\", \"count\": 890 }, { \"query\": \"http%3A%2F%2Fsharingis.cool%2F1000-musicians-played-foo-fighters-learn-to-fly-and-it-was-epic\", \"count\": 701 }]}"));
     }
+
     @Test
     public void wrongPopularDateFormat() throws Exception {
         this.mockMvc.perform(get("/1/queries/popular/11-08-02?size=5"))
